@@ -1,5 +1,7 @@
 package horizon.skyblock.utilities.island;
 
+import horizon.skyblock.SkyBlock;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -12,6 +14,7 @@ public enum IslandRole {
     OWNER(IslandPermission.ALL);
 
     private ArrayList<IslandPermission> permissionArrayList;
+    private final PermissionUtil permissionUtil = new PermissionUtil();
 
     IslandRole(IslandPermission... permissions) {
         permissionArrayList = (ArrayList<IslandPermission>) Arrays.asList(permissions);
@@ -31,6 +34,8 @@ public enum IslandRole {
                 continue;
             }
             getPermissions(island).add(permission);
+            SkyBlock.getInstance().getIslandsConfiguration().getConfig().getStringList("islands." + island.getOwnerUniqueId() + "permissions").add(permissionUtil.toString(permission));
+            SkyBlock.getInstance().getIslandsConfiguration().saveConfig();
         }
     }
 

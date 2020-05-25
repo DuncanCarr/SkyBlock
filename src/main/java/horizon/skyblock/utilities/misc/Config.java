@@ -49,4 +49,13 @@ public class Config {
     public String getFileName() {
         return this.fileName;
     }
+
+    public void saveConfig() {
+        try {
+            this.config.save(this.configFile);
+        } catch (IOException var4) {
+            var4.printStackTrace();
+        }
+        this.load();
+    }
 }
