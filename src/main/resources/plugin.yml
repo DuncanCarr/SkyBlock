@@ -1,6 +1,6 @@
 name: SpaceSkyBlock
 version: @version@
-main: horizon.skyblock.SpaceSkyBlock
-api-version: 1.13
+main: horizon.skyblock.SkyBlock
+api-version: "1.13"
 authors: [Horizon, yakovliam, RickyB98]
 description: SkyBlock plugin
